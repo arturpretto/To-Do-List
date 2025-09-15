@@ -19,8 +19,9 @@ model Task {
   title  String
   date DateTime
   userId String @db.ObjectId
+  completed Boolean  @default(false)
 
-  user      User     @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
 
 model User {
