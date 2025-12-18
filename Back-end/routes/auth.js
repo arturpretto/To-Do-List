@@ -25,16 +25,27 @@ authRoutes.post('/login', async (req, res) => {
 })
 
 authRoutes.post('/sign', async (req, res) => {
+    const email = req.body.email
+
     try {
-        const user = await prisma.user.create({
-            data: {
-                email: req.body.email,
-                name: req.body.name,
-                password: req.body.password
-            }
+        const user = await prisma.user.findUnique({
+            where: { email: email }
         })
 
-        res.status(201).json(user)
+        if (!user) {
+            const userCreate = await prisma.user.create({
+                data: {
+                    email: req.body.email,
+                    name: req.body.name,
+                    password: req.body.password
+                }
+            })
+
+            res.status(201).json(userCreate)
+        } else {
+            res.status(500).json({ message: 'Usuário já cadastrado.' })
+        }
+
     } catch (error) {
         res.status(500).json({ message: 'Erro ao criar usuário.' })
     }

@@ -1,17 +1,18 @@
 .container {
-    background-color: transparent;
+    background-color: var(--bg);
     backdrop-filter: blur(10px);
-    border: 1px solid white;
     width: 50%;
     height: 70dvh;
     border-radius: 10px;
-    color: white;
+    color: var(--text);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     text-align: center;
+    box-shadow: var(--shadow-l);
 }
+
 
 .main {
     width: 100%;
