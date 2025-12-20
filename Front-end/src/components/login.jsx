@@ -1,7 +1,7 @@
 import styles from '../styles/Auth.module.css'
 import { data, Link, useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
-import api from '../../services/app.js'
+import api from '../../services/api.js'
 
 function Login() {
     const passwordRef = useRef()
@@ -23,7 +23,7 @@ function Login() {
             alert('Logado com sucesso.')
 
             navigate('/tasks')
-        } catch(error) {
+        } catch (error) {
             alert('Erro ao logar: ' + error)
         }
     }

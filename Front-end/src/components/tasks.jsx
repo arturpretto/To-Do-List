@@ -1,5 +1,5 @@
 import styles from '../styles/Tasks.module.css'
-import api from '../../services/app.js'
+import api from '../../services/api.js'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -34,8 +34,8 @@ function Tasks() {
 
         try {
             await api.post('/tasks', {
-                title: titleRef,
-                date: dateRef,
+                title: titleRef.current.value,
+                date: dateRef.current.value,
                 userId: userId
             })
 

@@ -1,7 +1,7 @@
 import styles from '../styles/Auth.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
-import api from '../../services/app.js'
+import api from '../../services/api.js'
 
 function Signup() {
     const nameRef = useRef()
