@@ -19,6 +19,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
 }
 
 .authForm {
@@ -34,9 +35,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5%;
+    gap: 24px;
     width: 30%;
-    height: 100dvh;
+    height: 90dvh;
 }
 
 .button {
@@ -59,4 +60,18 @@
 .input {
     margin-top: 5%;
     width: 80%;
+}
+
+.colorMode {
+    height: 5dvh;
+    width: 10%;
+    border-radius: 99px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.colorMode:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-hover);
+    transition: 0.2s;
 }

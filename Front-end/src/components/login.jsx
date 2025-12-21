@@ -1,13 +1,25 @@
 import styles from '../styles/Auth.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import api from '../services/api.js'
 
 export default function Login() {
+    const [isLight, setLight] = useState(localStorage.getItem('theme') === 'light')
+
     const passwordRef = useRef()
     const emailRef = useRef()
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        if (isLight) {
+            localStorage.setItem('theme', 'light')
+            document.body.classList.add('light')
+        } else {
+            localStorage.setItem('theme', 'dark')
+            document.body.classList.remove('light')
+        }
+    }, [isLight])
 
     async function Handler(event) {
         event.preventDefault()

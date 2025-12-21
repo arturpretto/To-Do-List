@@ -50,3 +50,7 @@ button:hover {
 a {
     color: var(--text);
 }
+header {
+    height: 10dvh;
+    width: 100%;
+}

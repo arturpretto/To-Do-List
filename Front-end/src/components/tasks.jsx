@@ -6,6 +6,7 @@ import { CircleCheckBig, Trash2, Sun, Circle } from 'lucide-react';
 
 export default function Tasks() {
     const [tasks, setTasks] = useState([])
+    const [isLight, setLight] = useState(localStorage.getItem('theme') === 'light')
 
     const titleRef = useRef()
     const dateRef = useRef()
@@ -27,6 +28,16 @@ export default function Tasks() {
             LoadTasks()
         }
     })
+
+    useEffect(() => {
+        if (isLight) {
+            localStorage.setItem('theme', 'light')
+            document.body.classList.add('light')
+        } else {
+            localStorage.setItem('theme', 'dark')
+            document.body.classList.remove('light')
+        }
+    }, [isLight])
 
     async function createTask(event) {
         event.preventDefault()
@@ -68,12 +79,6 @@ export default function Tasks() {
         }
     }
 
-    async function changeMode(event) {
-        event.preventDefault()
-
-        document.body.classList.toggle('light')
-    }
-
     return (
         <div className={styles.main}>
             <div className={styles.container}>
@@ -83,7 +88,7 @@ export default function Tasks() {
                     <button type='submit'>ADICIONAR</button>
 
                     <Link to='/'><a>SAIR</a></Link>
-                    <Sun onClick={changeMode} className={styles.colorMode} />
+                    <Sun onClick={() => setLight(!isLight)} className={styles.colorMode} />
                 </form>
                 <div className={styles.taskList}>
                     {tasks.map(task => {
