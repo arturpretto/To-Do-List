@@ -29,12 +29,12 @@ export default function Login() {
     return (
         <div className={styles.main}>
             <div className={styles.container}>
-                <div className={styles.form}>
+                <div className={styles.authForm}>
                     <h1>LOG IN</h1>
-                    <form className={styles.form} onSubmit={Handler}>
+                    <form className={styles.authForm} onSubmit={Handler}>
                         <input type='text' placeholder='E-mail...' ref={emailRef} className={styles.input} />
                         <input type='password' placeholder='Password...' ref={passwordRef} className={styles.input} />
-                        <button type='submit' className={styles.formBtn}>ENTRAR</button>
+                        <button type='submit' className={styles.formButton}>ENTRAR</button>
 
                         <h3>Não tem uma conta? <Link to='/signup'><a>CADASTRAR-SE</a></Link></h3>
                     </form>

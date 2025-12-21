@@ -77,7 +77,7 @@ export default function Tasks() {
     return (
         <div className={styles.main}>
             <div className={styles.container}>
-                <form onSubmit={createTask} className={styles.form}>
+                <form onSubmit={createTask} className={styles.taskForm}>
                     <input type='text' placeholder='Insira uma nova tarefa...' ref={titleRef} className={styles.taskInput} />
                     <input type='datetime-local' ref={dateRef} />
                     <button type='submit'>ADICIONAR</button>
@@ -101,14 +101,14 @@ export default function Tasks() {
 
                         return (
                             <div key={task.id} className={styles.task}>
-                                <span className={styles.span} role='button' onClick={() => completeTask(task.id, !task.completed)}>
-                                    {task.completed ? <CircleCheckBig className={styles.spanIcon} />
-                                        : <Circle className={styles.spanIcon} />}
+                                <span className={styles.spanContainer} role='button' onClick={() => completeTask(task.id, !task.completed)}>
+                                    {task.completed ? <CircleCheckBig className={styles.iconButton} />
+                                        : <Circle className={styles.iconButton} />}
                                 </span>
-                                <div className={styles.titleWrapper}>
+                                <div className={styles.titleContainer}>
                                     {task.title}
                                 </div>
-                                <div className={styles.dateWrapper}>
+                                <div className={styles.dateContainer}>
                                     <span>
                                         {formatDate}
                                     </span>
@@ -116,8 +116,8 @@ export default function Tasks() {
                                         {formatTime}
                                     </span>
                                 </div>
-                                <span onClick={() => deleteTask(task.id)} className={styles.span}>
-                                    <Trash2 className={styles.spanIcon} />
+                                <span onClick={() => deleteTask(task.id)} className={styles.spanContainer}>
+                                    <Trash2 className={styles.iconButton} />
                                 </span>
                             </div>
                         )

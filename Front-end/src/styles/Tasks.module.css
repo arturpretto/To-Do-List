@@ -21,7 +21,7 @@
     display: flex;
 }
 
-.form {
+.taskForm {
     display: flex;
     gap: 5%;
     height: 10dvh;
@@ -63,13 +63,13 @@
     gap: 15px;
 }
 
-.span {
+.spanContainer {
     height: 30px;
     width: 30px;
     flex-shrink: 0;
 }
 
-.spanIcon {
+.iconButton {
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -89,12 +89,12 @@
     transition: 0.2s;
 }
 
-.titleWrapper {
+.titleContainer {
     flex: 1;
     min-width: 0;
 }
 
-.dateWrapper {
+.dateContainer {
     flex-shrink: 0;
     display: flex;
     gap: 15px;
