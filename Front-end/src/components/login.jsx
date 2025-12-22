@@ -11,18 +11,8 @@ export default function Login() {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (isLight) {
-            localStorage.setItem('theme', 'light')
-            document.body.classList.add('light')
-        } else {
-            localStorage.setItem('theme', 'dark')
-            document.body.classList.remove('light')
-        }
-    }, [isLight])
-
-    async function Handler(event) {
-        event.preventDefault()
+    const handler = async (e) => {
+        e.preventDefault()
 
         try {
             const { data } = await api.post('/auth/login', {
@@ -38,12 +28,22 @@ export default function Login() {
         }
     }
 
+    useEffect(() => {
+        if (isLight) {
+            localStorage.setItem('theme', 'light')
+            document.body.classList.add('light')
+        } else {
+            localStorage.setItem('theme', 'dark')
+            document.body.classList.remove('light')
+        }
+    }, [isLight])
+
     return (
         <div className={styles.main}>
             <div className={styles.container}>
                 <div className={styles.authForm}>
                     <h1>LOG IN</h1>
-                    <form className={styles.authForm} onSubmit={Handler}>
+                    <form className={styles.authForm} onSubmit={handler}>
                         <input type='text' placeholder='E-mail...' ref={emailRef} className={styles.input} />
                         <input type='password' placeholder='Password...' ref={passwordRef} className={styles.input} />
                         <button type='submit' className={styles.formButton}>ENTRAR</button>
