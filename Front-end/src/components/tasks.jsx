@@ -13,8 +13,8 @@ export default function Tasks() {
 
     const userId = localStorage.getItem('userId')
 
-    const createTask = async (e) => {
-        e.preventDefault()
+    const createTask = async (event) => {
+        event.preventDefault()
 
         try {
             await api.post('/tasks', {

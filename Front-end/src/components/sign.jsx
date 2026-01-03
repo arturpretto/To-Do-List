@@ -25,8 +25,8 @@ export default function Signup() {
         }
     }, [isLight])
 
-    async function Handler(e) {
-        e.preventDefault()
+    async function Handler(event) {
+        event.preventDefault()
 
         try {
             await api.post('/auth/sign', {

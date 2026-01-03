@@ -14,8 +14,8 @@ export default function Login() {
 
     const navigate = useNavigate()
 
-    const handler = async (e) => {
-        e.preventDefault()
+    const handler = async (event) => {
+        event.preventDefault()
 
         try {
             setLoading(true)
